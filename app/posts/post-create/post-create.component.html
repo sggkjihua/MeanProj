@@ -1,5 +1,17 @@
-<textarea rows=6>
-</textarea>
+<mat-card>
+    <mat-form-field>
+        <textarea matInput rows=1 [(ngModel)]="enteredValue"></textarea>
+    </mat-form-field>
+    <button
+    mat-raised-button
+    color = 'accent'
+    (click)="onAddPost()"> why so serious </button>
+
+</mat-card>
+
 <hr>
-<button (click)="onAddPost(postInput)"> why so serious </button>
+
+
+<!-- 下面是直接同过Forms module 找到enteredValue 不用再作为参数传进方法中-->
 <p>{{newPost}}</p>
+
