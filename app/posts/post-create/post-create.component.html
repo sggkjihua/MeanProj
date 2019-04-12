@@ -1,17 +1,14 @@
 <mat-card>
     <mat-form-field>
-        <textarea matInput rows=1 [(ngModel)]="enteredValue"></textarea>
+        <textarea matInput rows=1 placeholder="Title" [(ngModel)]="enteredTitle"></textarea>
     </mat-form-field>
+    <mat-form-field>
+        <textarea matInput rows=1 placeholder="Content" [(ngModel)]="enteredContent"></textarea>
+    </mat-form-field>
+    <br>
     <button
     mat-raised-button
     color = 'accent'
     (click)="onAddPost()"> why so serious </button>
-
 </mat-card>
-
-<hr>
-
-
 <!-- 下面是直接同过Forms module 找到enteredValue 不用再作为参数传进方法中-->
-<p>{{newPost}}</p>
-
