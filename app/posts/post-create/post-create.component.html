@@ -1,14 +1,39 @@
 <mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-        <textarea matInput rows=1 placeholder="Title" [(ngModel)]="enteredTitle"></textarea>
+      <textarea
+        matInput
+        rows=1
+        placeholder="Title"
+        name ="title"
+        ngModel
+        required
+        minlength="3"
+        #title="ngModel">
+        <mat-error *ngIf="title.invalid">
+          Please enter valid title
+        </mat-error>
+      </textarea>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput rows=1 placeholder="Content" [(ngModel)]="enteredContent"></textarea>
+      <textarea
+        matInput
+        rows=1
+        placeholder="Content"
+        name = "content"
+        ngModel
+        required
+        #content="ngModel">
+        <mat-error *ngIf="content.invalid">
+          Please enter valid content
+        </mat-error>
+      </textarea>
     </mat-form-field>
     <br>
     <button
     mat-raised-button
     color = 'accent'
-    (click)="onAddPost()"> why so serious </button>
+    type="submit"> why so serious </button>
+  </form>
 </mat-card>
 <!-- 下面是直接同过Forms module 找到enteredValue 不用再作为参数传进方法中-->
