@@ -5,3 +5,6 @@ textarea{
   max-width: 500px;
   width: 100%;
 }
+mat-spinner{
+  margin:auto
+}
