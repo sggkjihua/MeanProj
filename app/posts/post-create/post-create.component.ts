@@ -34,7 +34,7 @@ export class PostCreateComponent implements OnInit {
         this.postId = paramMap.get('postId');
         this.isLoading = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
-          this.post = {id: postData._id, title: postData.title, content: postData.content};
+          this.post = {id: postData._id, title: postData.title, content: postData.content, imagePath: null};
           this.isLoading = false;
           this.form.setValue({
             title: this.post.title,
@@ -53,7 +53,8 @@ export class PostCreateComponent implements OnInit {
     const post: Post = {
       id: null,
       title: this.form.value.title,
-      content: this.form.value.content
+      content: this.form.value.content,
+      imagePath: null
     };
     if (this.mode === 'create') {
       this.postsService.addPost(this.form.value.title, this.form.value.content, this.form.value.image);
