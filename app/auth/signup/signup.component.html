@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-spinner *ngIf ='isLoading'></mat-spinner>
+  <form (submit)= "onSignUp(signUpForm)" #signUpForm ="ngForm" *ngIf = '!isLoading'>
+    <mat-form-field>
+      <input
+        matInput rows=1 type = 'email' placeholder='Email'
+        name = 'email' ngModel #inputEmail ="ngModel" required email
+        >
+        <mat-error *ngIf=inputEmail.invalid> Please enter valid email address</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput rows=1 type = 'password' placeholder='Password'
+        name = 'password' ngModel #inputPassword ="ngModel" required
+        >
+        <mat-error *ngIf=inputPassword.invalid> Please enter valid password</mat-error>
+    </mat-form-field>
+    <br>
+    <button
+    mat-raised-button
+    color = 'accent'
+    type="submit"> Login </button>
+  </form>
+</mat-card>
+<!-- 下面是直接同过Forms module 找到enteredValue 不用再作为参数传进方法中-->
