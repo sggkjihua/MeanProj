@@ -2,21 +2,24 @@
   <span><a routerLink=''>My message</a></span>
   <span class = 'spacer'></span>
   <ul>
-      <li>
+      <li *ngIf="isAuthenticated">
         <a mat-button routerLink='/create'
         routerLinkActive="mat-accent">
           Add new Post
         </a>
       </li>
-      <li>
+      <li *ngIf="!isAuthenticated">
         <a mat-button routerLink='/login' routerLinkActive='mat-green'>
           Login
         </a>
       </li>
-      <li>
+      <li *ngIf="!isAuthenticated">
         <a mat-button routerLink='/signup' routerLinkActive='mat-green'>
           SignUp
         </a>
+      </li>
+      <li *ngIf="isAuthenticated">
+        <button mat-button (click)="logout()">Logout</button>
       </li>
     </ul>
 </mat-toolbar>
