@@ -4,6 +4,7 @@ import { AuthData } from './auth-data.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+
 @Injectable({providedIn: 'root'})
 export class AuthService {
   BACKEND_URL = environment.url;
@@ -14,6 +15,7 @@ export class AuthService {
   private authStatusListener = new Subject<boolean>();
   isAuthenticated = false;
   constructor(private http: HttpClient, private router: Router) {}
+
   getToken() {
     return this.token;
   }
@@ -21,6 +23,7 @@ export class AuthService {
   getStatus() {
     return this.isAuthenticated;
   }
+
   createUser(email: string, password: string) {
     const authdata: AuthData = {email, password};
     this.http.post(this.BACKEND_URL + '/user/signup', authdata)
